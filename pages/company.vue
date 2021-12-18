@@ -1,0 +1,209 @@
+<template>
+  <div>
+    <!-- start page title -->
+    <div class="row">
+      <div class="col-12">
+        <div class="page-title-box">
+          <div class="page-title-right">
+            <ol class="breadcrumb m-0">
+              <li class="breadcrumb-item">
+                <a href="javascript: void(0);">Uniforms</a>
+              </li>
+              <li class="breadcrumb-item">
+                <a href="javascript: void(0);">Company</a>
+              </li>
+              <li class="breadcrumb-item active">Company List</li>
+            </ol>
+          </div>
+          <h4 class="page-title">Company</h4>
+        </div>
+      </div>
+    </div>
+    <!-- end page title -->
+    <div class="row mt-3">
+      <div class="col-sm-4">
+        <a
+          href="apps-projects-add.html"
+          class="btn btn-danger rounded-pill mb-3"
+          ><i class="mdi mdi-plus"></i> Create Project</a
+        >
+      </div>
+      <div class="col-sm-8">
+        <div class="text-sm-end">
+          <div class="btn-group mb-3">
+            <button type="button" class="btn btn-primary">All</button>
+          </div>
+          <div class="btn-group mb-3 ms-1">
+            <button type="button" class="btn btn-light">Ongoing</button>
+            <button type="button" class="btn btn-light">Finished</button>
+          </div>
+          <div class="btn-group mb-3 ms-2 d-none d-sm-inline-block">
+            <button type="button" class="btn btn-secondary">
+              <i class="dripicons-view-apps"></i>
+            </button>
+          </div>
+          <div class="btn-group mb-3 d-none d-sm-inline-block">
+            <button type="button" class="btn btn-link text-muted">
+              <i class="dripicons-checklist"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- end col-->
+    </div>
+    <div class="row mt-3">
+      <div class="col-md-6 col-xxl-4" v-for="(comp, idx) in company" :key="idx">
+        <div class="card d-block">
+          <div class="card-body">
+            <div class="dropdown card-widgets">
+              <a
+                href="#"
+                class="dropdown-toggle arrow-none"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="dripicons-dots-3"></i>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end">
+                <!-- item-->
+
+                <nuxt-link
+                :to="{ path: '/company-profile', query: { id: comp.id } }"
+                class="dropdown-item"
+                >Setting</nuxt-link
+              >
+                <!--   <a href="" class="dropdown-item"
+                  ><i class="mdi mdi-pencil me-1"></i>Setting</a
+                >-->
+              </div>
+            </div>
+            <!-- project title-->
+            <h4 class="mt-0">
+              <!--   <nuxt-link :to="'/project/'" class="text-title">{{comp.company_name}}</nuxt-link>
+               <NuxtLink to="/project" class="  text-title">{{comp.company_name}}</NuxtLink>
+               <a href="/project/" class="text-title">{{comp.company_name}}</a> 
+                 <nuxt-link to="/project" class="  text-title">{{comp.company_name}}</nuxt-link>-->
+              <nuxt-link
+                :to="{ path: '/project', query: { id: comp.id } }"
+                class="text-title"
+                >{{ comp.company_name }}</nuxt-link
+              >
+            </h4>
+            <div class="badge bg-success mb-3">Finished</div>
+
+            <p class="text-muted font-13 mb-3">
+              With supporting text below as a natural lead-in to additional
+              contenposuere erat a ante...<a
+                href="javascript:void(0);"
+                class="fw-bold text-muted"
+                >view more</a
+              >
+            </p>
+
+            <!-- project detail-->
+            <p class="mb-1">
+              <span class="pe-2 text-nowrap mb-2 d-inline-block">
+                <i class="mdi mdi-format-list-bulleted-type text-muted"></i>
+                <b>21</b> Tasks
+              </span>
+              <span class="text-nowrap mb-2 d-inline-block">
+                <i class="mdi mdi-comment-multiple-outline text-muted"></i>
+                <b>741</b> Comments
+              </span>
+            </p>
+            <div id="tooltip-container">
+              <a
+                href="javascript:void(0);"
+                data-bs-container="#tooltip-container"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title="Mat Helme"
+                class="d-inline-block"
+              >
+                <img
+                  src="assets/images/users/avatar-6.jpg"
+                  class="rounded-circle avatar-xs"
+                  alt="friend"
+                />
+              </a>
+
+              <a
+                href="javascript:void(0);"
+                data-bs-container="#tooltip-container"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title="Michael Zenaty"
+                class="d-inline-block"
+              >
+                <img
+                  src="assets/images/users/avatar-7.jpg"
+                  class="rounded-circle avatar-xs"
+                  alt="friend"
+                />
+              </a>
+
+              <a
+                href="javascript:void(0);"
+                data-bs-container="#tooltip-container"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title="James Anderson"
+                class="d-inline-block"
+              >
+                <img
+                  src="assets/images/users/avatar-8.jpg"
+                  class="rounded-circle avatar-xs"
+                  alt="friend"
+                />
+              </a>
+              <a
+                href="javascript:void(0);"
+                class="d-inline-block text-muted fw-bold ms-2"
+              >
+                +7 more
+              </a>
+            </div>
+          </div>
+          <!-- end card-body-->
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item p-3">
+              <!-- project progress-->
+              <p class="mb-2 fw-bold">
+                Progress <span class="float-end">100%</span>
+              </p>
+              <div class="progress progress-sm">
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  aria-valuenow="100"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  style="width: 100%"
+                ></div>
+                <!-- /.progress-bar -->
+              </div>
+              <!-- /.progress -->
+            </li>
+          </ul>
+        </div>
+        <!-- end card-->
+        <!-- project card -->
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  layout: 'landing',
+  head() {
+    return {
+      title: 'Company',
+    }
+  },
+  async asyncData({ $axios }) {
+    const company = await $axios.$get('http://localhost:8080/company/all')
+    return { company }
+  },
+}
+</script>
